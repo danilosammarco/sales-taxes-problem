@@ -1,0 +1,30 @@
+{
+  "name": "sales-taxes-problem",
+  "version": "1.0.0",
+  "description": "Sales Taxes Problem",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danilosammarco/Sales-Taxes-Problem.git"
+  },
+  "keywords": [
+    "Sales",
+    "Taxes",
+    "Problem"
+  ],
+  "author": "Danilo Sammarco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danilosammarco/Sales-Taxes-Problem/issues"
+  },
+  "homepage": "https://github.com/danilosammarco/Sales-Taxes-Problem#readme",
+  "devDependencies": {
+    "eslint": "^8.4.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
+}
