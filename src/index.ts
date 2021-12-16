@@ -11,7 +11,7 @@ export function main(
     // Generate products
     const products = getProducts(inRows);
 
-    // Calculate amounts
+    // Calculate the amounts
     let taxAmount = 0;
     let total = 0;
 

@@ -2,9 +2,10 @@ import fs from 'fs';
 
 import { Config } from '../interface';
 
+// Default file path
 const fileInPath = './input/test1.txt';
 const fileOutPath = './output/output.txt';
-const configFilePath = './config/config.json';
+const configFilePath = './config/config.json'; // Not modifiable
 
 const optionsFile: fs.ObjectEncodingOptions = {
     encoding: 'utf-8',
