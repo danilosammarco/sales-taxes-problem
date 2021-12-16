@@ -41,6 +41,16 @@ export function getRows(fileName: string | undefined): string[] {
     return rows;
 }
 
-export function printRows(rows: string[], fileName: string | undefined): void {
-    fs.writeFileSync(fileName || fileOutPath, rows.join('\n'));
+export function printRows(
+    rows: string[],
+    fileName: string | undefined,
+    viewInConsole: boolean
+): void {
+    const printString = rows.join('\n');
+
+    if (viewInConsole) {
+        console.log(printString);
+    }
+
+    fs.writeFileSync(fileName || fileOutPath, printString);
 }

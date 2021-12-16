@@ -3,7 +3,8 @@ import { getProducts, getRows, printRows, round } from './utils';
 
 export function main(
     in_file: string | undefined,
-    out_file: string | undefined
+    out_file: string | undefined,
+    viewInConsole: boolean
 ) {
     // Read file
     const inRows = getRows(in_file);
@@ -32,7 +33,7 @@ export function main(
         `Total: ${round(total)}`,
     ];
 
-    printRows(outRows, out_file);
+    printRows(outRows, out_file, viewInConsole);
 }
 
-main(process.env.npm_config_in_file, process.env.npm_config_out_file);
+main(process.env.npm_config_in_file, process.env.npm_config_out_file, true);
