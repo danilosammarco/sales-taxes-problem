@@ -2,6 +2,8 @@
 
 ## How to compile and run it
 
+The node version required is v16.2.0.
+
 To install the project:
 
 ```Bash
