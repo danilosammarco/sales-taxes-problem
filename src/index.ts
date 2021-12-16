@@ -1,29 +1,38 @@
 import { Product } from './interface';
 import { getProducts, getRows, printRows, round } from './utils';
 
-// Read file
-const inRows = getRows();
+export function main(
+    in_file: string | undefined,
+    out_file: string | undefined
+) {
+    // Read file
+    const inRows = getRows(in_file);
 
-// Generate products
-const products = getProducts(inRows);
+    // Generate products
+    const products = getProducts(inRows);
 
-// Calculate amounts
-let taxAmount = 0;
-let total = 0;
+    // Calculate amounts
+    let taxAmount = 0;
+    let total = 0;
 
-for (const product of products) {
-    taxAmount += product.taxAmount * product.quantity;
-    total += product.totalPrice;
+    for (const product of products) {
+        taxAmount += product.taxAmount * product.quantity;
+        total += product.totalPrice;
+    }
+
+    // Print shopping cart
+    const outRows = [
+        ...products.map(
+            (product: Product) =>
+                `${product.quantity} ${product.name}: ${round(
+                    product.totalPrice
+                )}`
+        ),
+        `Sales Taxes: ${round(taxAmount)}`,
+        `Total: ${round(total)}`,
+    ];
+
+    printRows(outRows, out_file);
 }
 
-// Print shopping cart
-const outRows = [
-    ...products.map(
-        (product: Product) =>
-            `${product.quantity} ${product.name}: ${product.totalPrice}`
-    ),
-    `Sales Taxes: ${round(taxAmount)}`,
-    `Total: ${round(total)}`,
-];
-
-printRows(outRows);
+main(process.env.npm_config_in_file, process.env.npm_config_out_file);

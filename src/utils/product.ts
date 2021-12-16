@@ -1,7 +1,7 @@
 import { Product } from '../interface';
 import { getConfig, getTaxAmount, getTotalPrice } from './';
 
-function getIsExempt(name: string, exemptKeywords: string[]): boolean {
+export function getIsExempt(name: string, exemptKeywords: string[]): boolean {
     for (const keyword of exemptKeywords) {
         if (name.includes(keyword)) {
             return true;
@@ -11,13 +11,14 @@ function getIsExempt(name: string, exemptKeywords: string[]): boolean {
     return false;
 }
 
-export function getProducts(rows: string[]) {
+export function getProducts(rows: string[]): Product[] {
     const products: Product[] = [];
     const config = getConfig();
 
     for (const row of rows) {
-        const [quantityStr, name, priceStr, ...other] =
-            row.split(/\s(.*)\sat\s/);
+        const [quantityStr, name, priceStr, ...other] = row.split(
+            /\s(.*)\sat\s/
+        ) as string[];
 
         if (other && other.length > 0) {
             throw new Error('Input file malformed');

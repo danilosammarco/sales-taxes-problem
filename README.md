@@ -1,21 +1,43 @@
 # Sales taxes problem
 
 ## How to compile and run it
-To compile the project:
+
+To install the project:
 
 ```Bash
 npm install
 ```
 
-To execute the project:
+To compile the project:
 
 ```Bash
-npm start
+npm build
 ```
+
+To lint the project:
+
+```Bash
+npm run lint
+```
+
+To test the project:
+
+```Bash
+npm test
+```
+
+To execute the project (the parameters are not required):
+
+```Bash
+npm start ----in_file=./input/test3.txt --out_file=./output/output.txt
+```
+
 ## Problem
+
 This problem requires some kind of input. You are free to implement any mechanism for feeding input into your solution (for example, using hard coded data within a unit test). You should provide sufficient evidence that your solution is complete by, as a minimum, indicating that it works correctly against the supplied test data.
 
 ### SALES TAXES
+
 Basic sales tax is applicable at a rate of 10% on all goods, except books, food, and medical products that are exempt. Import duty is an additional sales tax applicable on all imported goods at a rate of 5%, with no exemptions.
 
 When I purchase items I receive a receipt which lists the name of all the items and their price (including tax), finishing with the total cost of the items, and the total amounts of sales taxes paid. The rounding rules for sales tax are that for a tax rate of n%, a shelf price of p contains (np/100 rounded up to the nearest 0.05) amount of sales tax.
@@ -23,6 +45,7 @@ When I purchase items I receive a receipt which lists the name of all the items 
 Write an application that prints out the receipt details for these shopping baskets...
 
 #### INPUT
+
     Input 1:
         2 book at 12.49
         1 music CD at 14.99
@@ -35,7 +58,9 @@ Write an application that prints out the receipt details for these shopping bask
         1 bottle of perfume at 18.99
         1 packet of headache pills at 9.75
         3 box of imported chocolates at 11.25
+
 #### OUTPUT
+
     Output 1:
             2 book: 24.98
             1 music CD: 16.49
@@ -56,9 +81,10 @@ Write an application that prints out the receipt details for these shopping bask
         Total: 98.38
 
 ### General requirements
-* You may use PHP, Python or Javascript programming language. Use something that you know well.
-* You must release your work with an OSI-approved open source license of your choice.
-* You must deliver the sources of your application, with a README that explains how to compile and run it.
-* Add the code to your own Github account and send us the link.
+
+-   You may use PHP, Python or Javascript programming language. Use something that you know well.
+-   You must release your work with an OSI-approved open source license of your choice.
+-   You must deliver the sources of your application, with a README that explains how to compile and run it.
+-   Add the code to your own Github account and send us the link.
 
 **IMPORTANT: Implement the requirements focusing on writing the best code you can produce.**
