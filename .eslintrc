@@ -1,0 +1,44 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended",
+      "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+      "quotes": "off",
+      "@typescript-eslint/quotes": [
+          "error",
+          "single",
+          {
+              "avoidEscape": true,
+              "allowTemplateLiterals": true
+          }
+      ],
+      "@typescript-eslint/naming-convention": [
+          "error",
+          {
+              "selector": "variable",
+              "format": ["camelCase"]
+          },
+          {
+              "selector": "variable",
+              "modifiers": ["const"],
+              "format": ["camelCase", "UPPER_CASE", "PascalCase"]
+          },
+          {
+              "selector": ["class", "enum", "interface"],
+              "format": ["PascalCase"]
+          }
+      ],
+      "newline-per-chained-call": "off",
+      "max-len": [
+          "error",
+          {
+              "code": 80,
+              "ignoreStrings": true
+          }
+      ]
+  }
+}
