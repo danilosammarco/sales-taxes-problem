@@ -5,7 +5,7 @@ export function main(
     in_file: string | undefined,
     out_file: string | undefined,
     viewInConsole: boolean
-) {
+): void {
     // Read file
     const inRows = getRows(in_file);
 
