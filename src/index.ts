@@ -1,39 +1,18 @@
-import { Product } from './interface';
-import { getProducts, getRows, printRows, round } from './utils';
+import { FileManager } from './FileManager';
+import { ShoppingCart } from './ShoppingCart';
 
-export function main(
-    in_file: string | undefined,
-    out_file: string | undefined,
-    viewInConsole: boolean
-): void {
-    // Read file
-    const inRows = getRows(in_file);
+export function main(in_file: string, out_file: string): void {
+    const reader = new FileManager();
 
-    // Generate products
-    const products = getProducts(inRows);
+    const rows = reader.getRows(in_file);
 
-    // Calculate the amounts
-    let taxAmount = 0;
-    let total = 0;
+    const shoppingCart = new ShoppingCart();
+    shoppingCart.postProducts(rows);
 
-    for (const product of products) {
-        taxAmount += product.taxAmount * product.quantity;
-        total += product.totalPrice;
-    }
-
-    // Print shopping cart
-    const outRows = [
-        ...products.map(
-            (product: Product) =>
-                `${product.quantity} ${product.name}: ${round(
-                    product.totalPrice
-                )}`
-        ),
-        `Sales Taxes: ${round(taxAmount)}`,
-        `Total: ${round(total)}`,
-    ];
-
-    printRows(outRows, out_file, viewInConsole);
+    reader.postRows(shoppingCart.getReceipt(), out_file);
 }
 
-main(process.env.npm_config_in_file, process.env.npm_config_out_file, true);
+main(
+    process.env.npm_config_in_file || './input/test1.txt',
+    process.env.npm_config_out_file || './output/output.txt'
+);
