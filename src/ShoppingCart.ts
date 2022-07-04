@@ -1,17 +1,9 @@
-import { Config } from './Config';
-import { FileManager } from './FileManager';
 import { Product } from './Product';
 
 export class ShoppingCart {
-    config: Config;
     products: Product[] = [];
     taxAmount = 0;
     total = 0;
-
-    constructor() {
-        const fileManager = new FileManager();
-        this.config = fileManager.getConfig();
-    }
 
     postProduct(row: string): void {
         const [quantity, name, price, ...other] = row.split(/\s(.*)\sat\s/);
