@@ -1,4 +1,4 @@
-import { FileManager } from './FileManager';
+import { Config } from './Config';
 
 export class Product {
     name: string;
@@ -24,7 +24,7 @@ export class Product {
     }
 
     private getIsExempt(): boolean {
-        const config = new FileManager().getConfig();
+        const config = new Config();
 
         for (const keyword of config.exemptKeywords) {
             if (this.name.includes(keyword)) {

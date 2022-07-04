@@ -1,10 +1,7 @@
 import fs from 'fs';
 
-import { Config } from './Config';
-
 export class FileManager {
     private optionsFile: fs.ObjectEncodingOptions = { encoding: 'utf-8' };
-    private configFilePath = './config/config.json';
 
     readFile(filePath: string): string {
         const data = fs.readFileSync(filePath, this.optionsFile);
@@ -41,14 +38,5 @@ export class FileManager {
             });
         }
         fs.writeFileSync(fileName, printString, { flag: 'w' });
-    }
-
-    getConfig(): Config {
-        const config = JSON.parse(this.readFile(this.configFilePath));
-        return new Config(
-            config.fileInPath,
-            config.fileOutPath,
-            config.exemptKeywords
-        );
     }
 }
